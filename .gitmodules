@@ -1,0 +1,3 @@
+[submodule "bwa"]
+	path = submodules/bwa
+	url = git@github.com:oicr-gsi/bwa.git
