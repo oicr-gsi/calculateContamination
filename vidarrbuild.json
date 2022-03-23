@@ -1,0 +1,6 @@
+{
+    "names": [
+        "calculateContamination"
+    ],
+    "wdl": "calculateContamination.wdl"
+}
