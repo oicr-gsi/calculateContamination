@@ -21,6 +21,9 @@ workflow calculateContamination {
     }
 
     parameter_meta {
+        inputGroups: "Array of fastq structs containing reads and readgroups"
+        bamFiles: "Array of bam structs containing bam files and indices"
+        inputType: "Either 'bam' or 'fastq'"
     }
  
     meta {
@@ -108,6 +111,11 @@ task getMetrics{
     }
 
     parameter_meta {
+        normalBamFile: "Reference bam file"
+        normalBaiFile: "Index of reference bam file"
+        tumorBamFile: "Tumor bam file"
+        tumorBaiFile: "Index of tumor bam file"
+        refVCF: "Path the reference VCF required by GATK"
         modules: "Required environment modules"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"
@@ -172,6 +180,9 @@ task tumorOnlyMetrics{
     }
 
     parameter_meta {
+        tumorBamFile: "Tumor bam file"
+        tumorBaiFile: "Index of tumor bam file"
+        refVCF: "Path the reference VCF required by GATK"
         modules: "Required environment modules"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"

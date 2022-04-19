@@ -1,0 +1,55 @@
+## Commands
+This section lists command(s) run by calculateContamination workflow
+
+* Running calculateContamination
+
+A WDL workflow that runs GATK4 CalculateContamination from FastQ or bam files.
+
+### Create pileups for tumor/normal pair and compare.
+
+```
+module load ~{modules}
+
+mv ~{tumorBamFile} ./tumorBamFile.bam
+mv ~{tumorBaiFile} ./tumorBamFile.bam.bai
+
+mv ~{normalBamFile} ./normalBamFile.bam
+mv ~{normalBaiFile} ./normalBamFile.bam.bai
+
+gatk GetPileupSummaries \
+-I tumorBamFile.bam \
+-V ~{refVCF} \
+-L ~{refVCF} \
+-O tumor.summaries.table
+
+gatk GetPileupSummaries \
+-I normalBamFile.bam \
+-V ~{refVCF} \
+-L ~{refVCF} \
+-O normal.summaries.table
+
+gatk CalculateContamination \
+-I tumor.summaries.table \
+-matched normal.summaries.table \
+-O contamination.table
+
+```
+### Create pileup for tumor bam and get contamination metrics.
+
+```
+module load ~{modules}
+
+mv ~{tumorBamFile} ./tumorBamFile.bam
+mv ~{tumorBaiFile} ./tumorBamFile.bam.bai
+
+gatk GetPileupSummaries \
+-I tumorBamFile.bam \
+-V ~{refVCF} \
+-L ~{refVCF} \
+-O tumor.summaries.table
+
+gatk CalculateContamination \
+-I tumor.summaries.table \
+-O contamination.table
+
+```
