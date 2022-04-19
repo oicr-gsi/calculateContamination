@@ -1,0 +1,453 @@
+[
+    {
+        "description": "Tumor bams only test",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+          },
+        "id": "calculateContamination_bamsTumorOnly",
+        "metadata": {
+            "calculateContamination.contaminationMetrics": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_calCoWorkflow_calculateContamination_bamsTumorOnly_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "calculateContamination.bwaMem.slicerR2_modules": null,
+            "calculateContamination.bwaMem.runBwaMem_addParam": null,
+            "calculateContamination.getMetrics.modules": null,
+            "calculateContamination.bwaMem.slicerR2_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
+            "calculateContamination.bwaMem.doTrim": null,
+            "calculateContamination.bwaMem.adapterTrimming_timeout": null,
+            "calculateContamination.tumorOnlyMetrics.memory": null,
+            "calculateContamination.tumorOnlyMetrics.modules": null,
+            "calculateContamination.bwaMem.numChunk": null,
+            "calculateContamination.bwaMem.slicerR1_timeout": null,
+            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.bwaMem.adapter2": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_timeout": null,
+            "calculateContamination.bwaMem.indexBam_modules":  null,
+            "calculateContamination.bwaMem.runBwaMem_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_modules": null,
+            "calculateContamination.tumorOnlyMetrics.timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_timeout": null,
+            "calculateContamination.bwaMem.trimMinQuality": null,
+            "calculateContamination.getMetrics.timeout": null,
+            "calculateContamination.bwaMem.adapterTrimming_addParam": null,
+            "calculateContamination.bwaMem.bamMerge_timeout": null,
+            "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
+            "calculateContamination.bamFiles": [
+                {
+                    "bamFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "baiFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }
+                }
+            ],
+            "calculateContamination.tumorOnlyMetrics.refVCF": null,
+            "calculateContamination.inputGroups": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
+            "calculateContamination.bwaMem.slicerR1_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_threads": null,
+            "calculateContamination.bwaMem.indexBam_jobMemory": null,
+            "calculateContamination.bwaMem.slicerR1_modules": null,
+            "calculateContamination.bwaMem.indexBam_timeout": null,
+            "calculateContamination.bwaMem.outputFileNamePrefix": null,
+            "calculateContamination.bwaMem.trimMinLength": null,
+            "calculateContamination.inputType": "bam",
+            "calculateContamination.getMetrics.memory": null,
+            "calculateContamination.bwaMem.bamMerge_jobMemory": null,
+            "calculateContamination.bwaMem.adapter1": null,
+            "calculateContamination.bwaMem.slicerR2_timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_jobMemory": null,
+            "calculateContamination.bwaMem.bamMerge_modules":  null
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "description": "Tumor/normal bams test",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+          },
+        "id": "calculateContamination_bamsTumorNormal",
+        "metadata": {
+            "calculateContamination.contaminationMetrics": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_calCoWorkflow_calculateContamination_bamsTumorNormal_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "calculateContamination.bwaMem.slicerR2_modules": null,
+            "calculateContamination.bwaMem.runBwaMem_addParam": null,
+            "calculateContamination.getMetrics.modules": null,
+            "calculateContamination.bwaMem.slicerR2_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
+            "calculateContamination.bwaMem.doTrim": null,
+            "calculateContamination.bwaMem.adapterTrimming_timeout": null,
+            "calculateContamination.tumorOnlyMetrics.memory": null,
+            "calculateContamination.tumorOnlyMetrics.modules": null,
+            "calculateContamination.bwaMem.numChunk": null,
+            "calculateContamination.bwaMem.slicerR1_timeout": null,
+            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.bwaMem.adapter2": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_timeout": null,
+            "calculateContamination.bwaMem.indexBam_modules":  null,
+            "calculateContamination.bwaMem.runBwaMem_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_modules": null,
+            "calculateContamination.tumorOnlyMetrics.timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_timeout": null,
+            "calculateContamination.bwaMem.trimMinQuality": null,
+            "calculateContamination.getMetrics.timeout": null,
+            "calculateContamination.bwaMem.adapterTrimming_addParam": null,
+            "calculateContamination.bwaMem.bamMerge_timeout": null,
+            "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
+            "calculateContamination.bamFiles": [
+                {
+                    "bamFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "baiFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }
+                },
+                {
+                    "bamFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "baiFile": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    }
+                }
+            ],
+            "calculateContamination.tumorOnlyMetrics.refVCF": null,
+            "calculateContamination.inputGroups": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
+            "calculateContamination.bwaMem.slicerR1_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_threads": null,
+            "calculateContamination.bwaMem.indexBam_jobMemory": null,
+            "calculateContamination.bwaMem.slicerR1_modules": null,
+            "calculateContamination.bwaMem.indexBam_timeout": null,
+            "calculateContamination.bwaMem.outputFileNamePrefix": null,
+            "calculateContamination.bwaMem.trimMinLength": null,
+            "calculateContamination.inputType": "bam",
+            "calculateContamination.getMetrics.memory": null,
+            "calculateContamination.bwaMem.bamMerge_jobMemory": null,
+            "calculateContamination.bwaMem.adapter1": null,
+            "calculateContamination.bwaMem.slicerR2_timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_jobMemory": null,
+            "calculateContamination.bwaMem.bamMerge_modules":  null
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "description": "Tumor fastqs test",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+          },
+        "id": "calculateContamination_fastqsTumor",
+        "metadata": {
+            "calculateContamination.contaminationMetrics": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_calCoWorkflow_calculateContamination_fastqsTumor_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "calculateContamination.bwaMem.slicerR2_modules": null,
+            "calculateContamination.bwaMem.runBwaMem_addParam": null,
+            "calculateContamination.getMetrics.modules": null,
+            "calculateContamination.bwaMem.slicerR2_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
+            "calculateContamination.bwaMem.doTrim": null,
+            "calculateContamination.bwaMem.adapterTrimming_timeout": null,
+            "calculateContamination.tumorOnlyMetrics.memory": null,
+            "calculateContamination.tumorOnlyMetrics.modules": null,
+            "calculateContamination.bwaMem.numChunk": null,
+            "calculateContamination.bwaMem.slicerR1_timeout": null,
+            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.bwaMem.adapter2": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_timeout": null,
+            "calculateContamination.bwaMem.indexBam_modules":  null,
+            "calculateContamination.bwaMem.runBwaMem_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_modules": null,
+            "calculateContamination.tumorOnlyMetrics.timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_timeout": null,
+            "calculateContamination.bwaMem.trimMinQuality": null,
+            "calculateContamination.getMetrics.timeout": null,
+            "calculateContamination.bwaMem.adapterTrimming_addParam": null,
+            "calculateContamination.bwaMem.bamMerge_timeout": null,
+            "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
+            "calculateContamination.bamFiles": null,
+            "calculateContamination.tumorOnlyMetrics.refVCF": null,
+            "calculateContamination.inputGroups": [
+                {
+                    "fastq1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_1.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "fastq2": {
+                        "contents": {
+                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TATCCTCT_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TATCCTCT_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'"
+                },
+                {
+                    "fastq1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_1.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "fastq2": {
+                        "contents": {
+                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TAGATCGC_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TAGATCGC_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'"
+                }
+            ],
+            "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
+            "calculateContamination.bwaMem.slicerR1_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_threads": null,
+            "calculateContamination.bwaMem.indexBam_jobMemory": null,
+            "calculateContamination.bwaMem.slicerR1_modules": null,
+            "calculateContamination.bwaMem.indexBam_timeout": null,
+            "calculateContamination.bwaMem.outputFileNamePrefix": null,
+            "calculateContamination.bwaMem.trimMinLength": null,
+            "calculateContamination.inputType": "fastq",
+            "calculateContamination.getMetrics.memory": null,
+            "calculateContamination.bwaMem.bamMerge_jobMemory": null,
+            "calculateContamination.bwaMem.adapter1": null,
+            "calculateContamination.bwaMem.slicerR2_timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_jobMemory": null,
+            "calculateContamination.bwaMem.bamMerge_modules":  null
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "type": "script"
+            }
+        ]
+    },
+        {
+        "description": "Tumor/normal fastqs test",
+        "engineArguments": {
+            "write_to_cache": false,
+            "read_from_cache": false
+          },
+        "id": "calculateContamination_fastqsTumorNormal",
+        "metadata": {
+            "calculateContamination.contaminationMetrics": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_calCoWorkflow_calculateContamination_fastqsTumorNormal_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "arguments": {
+            "calculateContamination.bwaMem.slicerR2_modules": null,
+            "calculateContamination.bwaMem.runBwaMem_addParam": null,
+            "calculateContamination.getMetrics.modules": null,
+            "calculateContamination.bwaMem.slicerR2_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
+            "calculateContamination.bwaMem.doTrim": null,
+            "calculateContamination.bwaMem.adapterTrimming_timeout": null,
+            "calculateContamination.tumorOnlyMetrics.memory": null,
+            "calculateContamination.tumorOnlyMetrics.modules": null,
+            "calculateContamination.bwaMem.numChunk": null,
+            "calculateContamination.bwaMem.slicerR1_timeout": null,
+            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.bwaMem.adapter2": null,
+            "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_timeout": null,
+            "calculateContamination.bwaMem.indexBam_modules":  null,
+            "calculateContamination.bwaMem.runBwaMem_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_modules": null,
+            "calculateContamination.tumorOnlyMetrics.timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_timeout": null,
+            "calculateContamination.bwaMem.trimMinQuality": null,
+            "calculateContamination.getMetrics.timeout": null,
+            "calculateContamination.bwaMem.adapterTrimming_addParam": null,
+            "calculateContamination.bwaMem.bamMerge_timeout": null,
+            "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
+            "calculateContamination.bamFiles": null,
+            "calculateContamination.tumorOnlyMetrics.refVCF": null,
+            "calculateContamination.inputGroups": [
+                {
+                    "fastq1": {
+                        "contents": {
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_1.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "fastq2": {
+                        "contents": {
+                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
+                            "externalIds": [
+                                {
+                                    "id": "TEST",
+                                    "provider": "TEST"
+                                }
+                            ]
+                        },
+                        "type": "EXTERNAL"
+                    },
+                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TATCCTCT_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TATCCTCT_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'"
+                }
+            ],
+            "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
+            "calculateContamination.bwaMem.slicerR1_jobMemory": null,
+            "calculateContamination.bwaMem.runBwaMem_threads": null,
+            "calculateContamination.bwaMem.indexBam_jobMemory": null,
+            "calculateContamination.bwaMem.slicerR1_modules": null,
+            "calculateContamination.bwaMem.indexBam_timeout": null,
+            "calculateContamination.bwaMem.outputFileNamePrefix": null,
+            "calculateContamination.bwaMem.trimMinLength": null,
+            "calculateContamination.inputType": "fastq",
+            "calculateContamination.getMetrics.memory": null,
+            "calculateContamination.bwaMem.bamMerge_jobMemory": null,
+            "calculateContamination.bwaMem.adapter1": null,
+            "calculateContamination.bwaMem.slicerR2_timeout": null,
+            "calculateContamination.bwaMem.countChunkSize_jobMemory": null,
+            "calculateContamination.bwaMem.adapterTrimming_jobMemory": null,
+            "calculateContamination.bwaMem.bamMerge_modules":  null
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "type": "script"
+            }
+        ]
+    }    
+]
