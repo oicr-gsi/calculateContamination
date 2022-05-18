@@ -123,17 +123,19 @@ task getMetrics{
 
     command <<<
 
-ln -s ~{tumorBaiFile} .
-ln -s ~{normalBaiFile} .
+ln -s ~{tumorBamFile} ./tumorBamFile.bam
+ln -s ~{tumorBaiFile} ./tumorBamFile.bam.bai
+ln ~{normalBamFile} ./normalBamFile.bam
+ln ~{normalBaiFile} ./normalBamFile.bam.bai
 
 $GATK_ROOT/bin/gatk GetPileupSummaries \
--I ~{tumorBamFile} \
+-I ./tumorBamFile.bam \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O tumor.summaries.table
 
 $GATK_ROOT/bin/gatk GetPileupSummaries \
--I ~{normalBamFile} \
+-I ./normalBamFile.bam \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O normal.summaries.table
@@ -183,14 +185,12 @@ task tumorOnlyMetrics{
     }
 
     command <<<
-module unload cromwell #temp for local testing
-module unload java     #temp for local testing
-module load ~{modules}
 
-ln -s ~{tumorBaiFile} .
+ln -s ~{tumorBamFile} ./tumorBamFile.bam
+ln -s ~{tumorBaiFile} ./tumorBamFile.bam.bai
 
 $GATK_ROOT/bin/gatk GetPileupSummaries \
--I ~{tumorBamFile} \
+-I ./tumorBamFile.bam \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O tumor.summaries.table
