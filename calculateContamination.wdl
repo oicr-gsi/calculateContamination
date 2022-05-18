@@ -122,29 +122,23 @@ task getMetrics{
     }
 
     command <<<
-module unload cromwell #temp for local testing
-module unload java     #temp for local testing
-module load ~{modules}
 
-mv ~{tumorBamFile} ./tumorBamFile.bam
-mv ~{tumorBaiFile} ./tumorBamFile.bam.bai
+ln -s ~{tumorBaiFile} .
+ln -s ~{normalBaiFile} .
 
-mv ~{normalBamFile} ./normalBamFile.bam
-mv ~{normalBaiFile} ./normalBamFile.bam.bai
-
-gatk GetPileupSummaries \
--I tumorBamFile.bam \
+$GATK_ROOT/bin/gatk GetPileupSummaries \
+-I ~{tumorBamFile} \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O tumor.summaries.table
 
-gatk GetPileupSummaries \
--I normalBamFile.bam \
+$GATK_ROOT/bin/gatk GetPileupSummaries \
+-I ~{normalBamFile} \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O normal.summaries.table
 
-gatk CalculateContamination \
+$GATK_ROOT/bin/gatk CalculateContamination \
 -I tumor.summaries.table \
 -matched normal.summaries.table \
 -O contamination.table
@@ -193,16 +187,15 @@ module unload cromwell #temp for local testing
 module unload java     #temp for local testing
 module load ~{modules}
 
-mv ~{tumorBamFile} ./tumorBamFile.bam
-mv ~{tumorBaiFile} ./tumorBamFile.bam.bai
+ln -s ~{tumorBaiFile} .
 
-gatk GetPileupSummaries \
--I tumorBamFile.bam \
+$GATK_ROOT/bin/gatk GetPileupSummaries \
+-I ~{tumorBamFile} \
 -V ~{refVCF} \
 -L ~{refVCF} \
 -O tumor.summaries.table
 
-gatk CalculateContamination \
+$GATK_ROOT/bin/gatk CalculateContamination \
 -I tumor.summaries.table \
 -O contamination.table
 
