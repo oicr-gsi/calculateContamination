@@ -19,16 +19,15 @@
         "arguments": {
             "calculateContamination.bwaMem.slicerR2_modules": null,
             "calculateContamination.bwaMem.runBwaMem_addParam": null,
-            "calculateContamination.getMetrics.modules": null,
             "calculateContamination.bwaMem.slicerR2_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
             "calculateContamination.bwaMem.doTrim": null,
             "calculateContamination.bwaMem.adapterTrimming_timeout": null,
             "calculateContamination.tumorOnlyMetrics.memory": null,
-            "calculateContamination.tumorOnlyMetrics.modules": null,
             "calculateContamination.bwaMem.numChunk": null,
             "calculateContamination.bwaMem.slicerR1_timeout": null,
-            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+            "calculateContamination.modules":"gatk/4.2.0.0 hg38-gatk-gnomad/2.0",
             "calculateContamination.bwaMem.adapter2": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_timeout": null,
@@ -70,7 +69,6 @@
                     }
                 }
             ],
-            "calculateContamination.tumorOnlyMetrics.refVCF": null,
             "calculateContamination.inputGroups": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
@@ -118,16 +116,15 @@
         "arguments": {
             "calculateContamination.bwaMem.slicerR2_modules": null,
             "calculateContamination.bwaMem.runBwaMem_addParam": null,
-            "calculateContamination.getMetrics.modules": null,
             "calculateContamination.bwaMem.slicerR2_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
             "calculateContamination.bwaMem.doTrim": null,
             "calculateContamination.bwaMem.adapterTrimming_timeout": null,
             "calculateContamination.tumorOnlyMetrics.memory": null,
-            "calculateContamination.tumorOnlyMetrics.modules": null,
             "calculateContamination.bwaMem.numChunk": null,
             "calculateContamination.bwaMem.slicerR1_timeout": null,
-            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+            "calculateContamination.modules":"gatk/4.2.0.0 hg38-gatk-gnomad/2.0",
             "calculateContamination.bwaMem.adapter2": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_timeout": null,
@@ -195,7 +192,6 @@
                     }
                 }
             ],
-            "calculateContamination.tumorOnlyMetrics.refVCF": null,
             "calculateContamination.inputGroups": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
@@ -243,16 +239,15 @@
         "arguments": {
             "calculateContamination.bwaMem.slicerR2_modules": null,
             "calculateContamination.bwaMem.runBwaMem_addParam": null,
-            "calculateContamination.getMetrics.modules": null,
             "calculateContamination.bwaMem.slicerR2_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
             "calculateContamination.bwaMem.doTrim": null,
             "calculateContamination.bwaMem.adapterTrimming_timeout": null,
             "calculateContamination.tumorOnlyMetrics.memory": null,
-            "calculateContamination.tumorOnlyMetrics.modules": null,
             "calculateContamination.bwaMem.numChunk": null,
             "calculateContamination.bwaMem.slicerR1_timeout": null,
-            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+            "calculateContamination.modules":"gatk/4.2.0.0 hg38-gatk-gnomad/2.0",
             "calculateContamination.bwaMem.adapter2": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_timeout": null,
@@ -267,7 +262,6 @@
             "calculateContamination.bwaMem.bamMerge_timeout": null,
             "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
             "calculateContamination.bamFiles": null,
-            "calculateContamination.tumorOnlyMetrics.refVCF": null,
             "calculateContamination.inputGroups": [
                 {
                     "fastq1": {
@@ -284,7 +278,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
+                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -311,7 +305,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
+                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -370,16 +364,15 @@
         "arguments": {
             "calculateContamination.bwaMem.slicerR2_modules": null,
             "calculateContamination.bwaMem.runBwaMem_addParam": null,
-            "calculateContamination.getMetrics.modules": null,
             "calculateContamination.bwaMem.slicerR2_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
             "calculateContamination.bwaMem.doTrim": null,
             "calculateContamination.bwaMem.adapterTrimming_timeout": null,
             "calculateContamination.tumorOnlyMetrics.memory": null,
-            "calculateContamination.tumorOnlyMetrics.modules": null,
             "calculateContamination.bwaMem.numChunk": null,
             "calculateContamination.bwaMem.slicerR1_timeout": null,
-            "calculateContamination.getMetrics.refVCF": null,
+            "calculateContamination.refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+            "calculateContamination.modules":"gatk/4.2.0.0 hg38-gatk-gnomad/2.0",
             "calculateContamination.bwaMem.adapter2": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_timeout": null,
@@ -394,7 +387,6 @@
             "calculateContamination.bwaMem.bamMerge_timeout": null,
             "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
             "calculateContamination.bamFiles": null,
-            "calculateContamination.tumorOnlyMetrics.refVCF": null,
             "calculateContamination.inputGroups": [
                 {
                     "fastq1": {

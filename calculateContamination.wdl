@@ -18,12 +18,16 @@ workflow calculateContamination {
         Array[InputGroup]? inputGroups
         Array[BamInputs]? bamFiles
         String inputType
+        String refVCF
+        String modules 
     }
 
     parameter_meta {
         inputGroups: "Array of fastq structs containing reads and readgroups"
         bamFiles: "Array of bam structs containing bam files and indices"
         inputType: "Either 'bam' or 'fastq'"
+        refVCF: "Path the reference VCF required by GATK"
+        modules: "Required environment modules"
     }
  
     meta {
@@ -78,7 +82,9 @@ workflow calculateContamination {
         call tumorOnlyMetrics {
             input:
                 tumorBamFile = bamFiles_[0].bamFile,
-                tumorBaiFile = bamFiles_[0].baiFile
+                tumorBaiFile = bamFiles_[0].baiFile,
+                refVCF = refVCF,
+                modules =modules
         }
     }
     if ( length(bamFiles_)==2 ) {
@@ -87,7 +93,9 @@ workflow calculateContamination {
                 tumorBamFile = bamFiles_[0].bamFile,
                 tumorBaiFile = bamFiles_[0].baiFile,
                 normalBamFile = bamFiles_[1].bamFile,
-                normalBaiFile = bamFiles_[1].baiFile
+                normalBaiFile = bamFiles_[1].baiFile,
+                refVCF = refVCF,
+                modules =modules
         }
     }
 
@@ -103,9 +111,8 @@ task getMetrics{
         File normalBaiFile
         File tumorBamFile
         File tumorBaiFile
-        String refVCF = "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"
-        
-        String modules = "gatk/4.2.0.0 hg38-gatk-gnomad/2.0"
+        String refVCF
+        String modules
         Int memory = 24
         Int timeout = 12
     }
@@ -115,8 +122,6 @@ task getMetrics{
         normalBaiFile: "Index of reference bam file"
         tumorBamFile: "Tumor bam file"
         tumorBaiFile: "Index of tumor bam file"
-        refVCF: "Path the reference VCF required by GATK"
-        modules: "Required environment modules"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"
     }
@@ -169,8 +174,8 @@ task tumorOnlyMetrics{
     input {
         File tumorBamFile
         File tumorBaiFile
-        String modules = "gatk/4.2.0.0 hg38-gatk-gnomad/2.0"
-        String refVCF = "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"
+        String modules
+        String refVCF
         Int memory = 24
         Int timeout = 12
     }
@@ -178,8 +183,6 @@ task tumorOnlyMetrics{
     parameter_meta {
         tumorBamFile: "Tumor bam file"
         tumorBaiFile: "Index of tumor bam file"
-        refVCF: "Path the reference VCF required by GATK"
-        modules: "Required environment modules"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"
     }

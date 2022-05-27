@@ -4,8 +4,6 @@ QC workflow to determine contamination metrics on tumor bam files.
 
 ## Overview
 
-![calculateContamination workflow diagram](./calculateContamination.svg?raw=true "calculateContamination workflow diagram")
-
 ## Dependencies
 
 * [gatk 4.2.0.0](https://gatk.broadinstitute.org)
@@ -25,6 +23,8 @@ java -jar cromwell.jar run calculateContamination.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `inputType`|String|Either 'bam' or 'fastq'
+`refVCF`|String|Path the reference VCF required by GATK
+`modules`|String|Required environment modules
 `bwaMem.runBwaMem_bwaRef`|String|The reference genome to align the sample with by BWA
 `bwaMem.runBwaMem_modules`|String|Required environment modules
 
@@ -70,12 +70,8 @@ Parameter|Value|Default|Description
 `bwaMem.trimMinQuality`|Int|0|minimum quality of read ends to keep [0]
 `bwaMem.adapter1`|String|"AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC"|adapter sequence to trim from read 1 [AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC]
 `bwaMem.adapter2`|String|"AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"|adapter sequence to trim from read 2 [AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT]
-`tumorOnlyMetrics.modules`|String|"gatk/4.2.0.0 hg38-gatk-gnomad/2.0"|Required environment modules
-`tumorOnlyMetrics.refVCF`|String|"$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"|Path the reference VCF required by GATK
 `tumorOnlyMetrics.memory`|Int|24|Memory allocated for this job
 `tumorOnlyMetrics.timeout`|Int|12|Time in hours before task timeout
-`getMetrics.refVCF`|String|"$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"|Path the reference VCF required by GATK
-`getMetrics.modules`|String|"gatk/4.2.0.0 hg38-gatk-gnomad/2.0"|Required environment modules
 `getMetrics.memory`|Int|24|Memory allocated for this job
 `getMetrics.timeout`|Int|12|Time in hours before task timeout
 
