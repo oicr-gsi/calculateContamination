@@ -2,29 +2,31 @@ version 1.0
 
 import "imports/pull_bwaMem.wdl" as bwaMem
 
-struct InputGroup {
+struct FastqInputs {
     File fastq1
     File fastq2
     String readGroups
+    String sampleType
 }
 
 struct BamInputs {
     File bamFile
     File baiFile
+    String sampleType
 }
 
 workflow calculateContamination {
     input {
-        Array[InputGroup]? inputGroups
-        Array[BamInputs]? bamFiles
+        Array[FastqInputs]? fastqInputs
+        Array[BamInputs]? bamInputs
         String inputType
         String refVCF
         String modules 
     }
 
     parameter_meta {
-        inputGroups: "Array of fastq structs containing reads and readgroups"
-        bamFiles: "Array of bam structs containing bam files and indices"
+        fastqInputs: "Array of fastq structs containing reads and readgroups"
+        bamInputs: "Array of bam structs containing bam files and indices"
         inputType: "Either 'bam' or 'fastq'"
         refVCF: "Path the reference VCF required by GATK"
         modules: "Required environment modules"
@@ -55,49 +57,51 @@ workflow calculateContamination {
 #   Bam and index file(s) collected into a new array.
 # =======================================================
 
-    if ( inputType=="fastq" && defined(inputGroups) ){
-        Array[InputGroup] inputGroups_ = select_first([inputGroups])
-        scatter (ig in inputGroups_) {
+    if ( inputType=="fastq" && defined(fastqInputs) ){
+        Array[FastqInputs] fastqInputs_ = select_first([fastqInputs])
+        scatter (fq in fastqInputs_) {
             call bwaMem.bwaMem {
                 input:
-                    fastqR1 = ig.fastq1,
-                    fastqR2 = ig.fastq2,
-                    readGroups = ig.readGroups
+                    fastqR1 = fq.fastq1,
+                    fastqR2 = fq.fastq2,
+                    readGroups = fq.readGroups
             }
-            BamInputs indexedBamFiles = {
+            BamInputs alignedBamInputs= {
                 "bamFile":bwaMem.bwaMemBam,
-                "baiFile":bwaMem.bwaMemIndex
+                "baiFile":bwaMem.bwaMemIndex,
+                "sampleType": fq.sampleType
             }
         }
     }
 
 # =======================================================
-#   Check to see if bam files array has 1 or 2 files.
-#   Determines whether we run tumor/normal or tumor-only.
+#   Check to see if bam for nromal sample exists,
+#   to determine whether we run tumor/normal or tumor-only.
 # =======================================================
 
-    Array[BamInputs] bamFiles_ = select_first([bamFiles, indexedBamFiles])    
+    Array[BamInputs] bamInputs_ = select_first([bamInputs, alignedBamInputs])    
     
-    if ( length(bamFiles_)==1 ) {
+    if  (length(bamInputs_)==1 && bamInputs_[0].sampleType == "tumor"){
         call tumorOnlyMetrics {
             input:
-                tumorBamFile = bamFiles_[0].bamFile,
-                tumorBaiFile = bamFiles_[0].baiFile,
+                tumorBamFile = bamInputs_[0].bamFile,
+                tumorBaiFile = bamInputs_[0].baiFile,
                 refVCF = refVCF,
                 modules =modules
         }
     }
-    if ( length(bamFiles_)==2 ) {
+    if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor") {
         call getMetrics {
             input:
-                tumorBamFile = bamFiles_[0].bamFile,
-                tumorBaiFile = bamFiles_[0].baiFile,
-                normalBamFile = bamFiles_[1].bamFile,
-                normalBaiFile = bamFiles_[1].baiFile,
+                tumorBamFile = bamInputs_[0].bamFile,
+                tumorBaiFile = bamInputs_[0].baiFile,
+                normalBamFile = bamInputs_[1].bamFile,
+                normalBaiFile = bamInputs_[1].baiFile,
                 refVCF = refVCF,
                 modules =modules
         }
     }
+
 
     output {
         File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getMetrics.pairContaminationTable])
