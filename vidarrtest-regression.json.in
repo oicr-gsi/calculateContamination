@@ -70,7 +70,7 @@
                     "sampleType":"tumor"
                 }
             ],
-            "calculateContamination.inputGroups": null,
+            "calculateContamination.fastqInputs": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -195,7 +195,7 @@
                     "sampleType": "normal"
                 }
             ],
-            "calculateContamination.inputGroups": null,
+            "calculateContamination.fastqInputs": null,
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -265,7 +265,7 @@
             "calculateContamination.bwaMem.bamMerge_timeout": null,
             "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
             "calculateContamination.bamInputs": null,
-            "calculateContamination.inputGroups": [
+            "calculateContamination.fastqInputs": [
                 {
                     "fastq1": {
                         "contents": {
@@ -392,7 +392,7 @@
             "calculateContamination.bwaMem.bamMerge_timeout": null,
             "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
             "calculateContamination.bamInputs": null,
-            "calculateContamination.inputGroups": [
+            "calculateContamination.fastqInputs": [
                 {
                     "fastq1": {
                         "contents": {
