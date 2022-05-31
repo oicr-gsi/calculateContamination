@@ -4,8 +4,6 @@ QC workflow to determine contamination metrics on tumor bam files.
 
 ## Overview
 
-![calculateContamination workflow diagram](./calculateContamination.svg?raw=true "calculateContamination workflow diagram")
-
 ## Dependencies
 
 * [gatk 4.2.0.0](https://gatk.broadinstitute.org)
@@ -25,6 +23,8 @@ java -jar cromwell.jar run calculateContamination.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `inputType`|String|Either 'bam' or 'fastq'
+`refVCF`|String|Path the reference VCF required by GATK
+`modules`|String|Required environment modules
 `bwaMem.runBwaMem_bwaRef`|String|The reference genome to align the sample with by BWA
 `bwaMem.runBwaMem_modules`|String|Required environment modules
 
@@ -32,8 +32,8 @@ Parameter|Value|Description
 #### Optional workflow parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
-`inputGroups`|Array[InputGroup]?|None|Array of fastq structs containing reads and readgroups
-`bamFiles`|Array[BamInputs]?|None|Array of bam structs containing bam files and indices
+`fastqInputs`|Array[FastqInputs]?|None|Array of fastq structs containing reads and readgroups
+`bamInputs`|Array[BamInputs]?|None|Array of bam structs containing bam files and indices
 
 
 #### Optional task parameters:
@@ -70,12 +70,8 @@ Parameter|Value|Default|Description
 `bwaMem.trimMinQuality`|Int|0|minimum quality of read ends to keep [0]
 `bwaMem.adapter1`|String|"AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC"|adapter sequence to trim from read 1 [AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC]
 `bwaMem.adapter2`|String|"AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"|adapter sequence to trim from read 2 [AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT]
-`tumorOnlyMetrics.modules`|String|"gatk/4.2.0.0 hg38-gatk-gnomad/2.0"|Required environment modules
-`tumorOnlyMetrics.refVCF`|String|"$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"|Path the reference VCF required by GATK
 `tumorOnlyMetrics.memory`|Int|24|Memory allocated for this job
 `tumorOnlyMetrics.timeout`|Int|12|Time in hours before task timeout
-`getMetrics.refVCF`|String|"$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz"|Path the reference VCF required by GATK
-`getMetrics.modules`|String|"gatk/4.2.0.0 hg38-gatk-gnomad/2.0"|Required environment modules
 `getMetrics.memory`|Int|24|Memory allocated for this job
 `getMetrics.timeout`|Int|12|Time in hours before task timeout
 
@@ -87,6 +83,7 @@ Output | Type | Description
 `contaminationMetrics`|File|Metrics about contamination for inputs bams/fastqs
 
 
+./commands.txt found, printing out the content...
 ## Commands
  This section lists command(s) run by calculateContamination workflow
  
@@ -147,3 +144,4 @@ Output | Type | Description
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
 _Generated with generate-markdown-readme (https://github.com/oicr-gsi/gsi-wdl-tools/)_
+
