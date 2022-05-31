@@ -33,8 +33,8 @@ workflow calculateContamination {
     }
  
     meta {
-        author: "Murto Hilali"
-        email: "mhilali@oicr.on.ca"
+        author: "Murto Hilali and Gavin Peng"
+        email: "mhilali@oicr.on.ca and gpeng@oicr.on.ca" 
         description: "QC workflow to determine contamination metrics on tumor bam files."
         dependencies: [
             {
@@ -59,6 +59,7 @@ workflow calculateContamination {
 
     if ( inputType=="fastq" && defined(fastqInputs) ){
         Array[FastqInputs] fastqInputs_ = select_first([fastqInputs])
+        if ((length(fastqInputs_) == 1 && fastqInputs_[0].sampleType == "tumor") || (length(fastqInputs_) == 2 && fastqInputs_[0].sampleType == "tumor" && fastqInputs_[1].sampleType == "normal")){
         scatter (fq in fastqInputs_) {
             call bwaMem.bwaMem {
                 input:
@@ -72,6 +73,7 @@ workflow calculateContamination {
                 "sampleType": fq.sampleType
             }
         }
+    }
     }
 
 # =======================================================
@@ -90,7 +92,7 @@ workflow calculateContamination {
                 modules =modules
         }
     }
-    if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor") {
+    if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor" && bamInputs_[1].sampleType == "normal") {
         call getMetrics {
             input:
                 tumorBamFile = bamInputs_[0].bamFile,
@@ -101,7 +103,6 @@ workflow calculateContamination {
                 modules =modules
         }
     }
-
 
     output {
         File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getMetrics.pairContaminationTable])
