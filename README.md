@@ -32,8 +32,8 @@ Parameter|Value|Description
 #### Optional workflow parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
-`inputGroups`|Array[InputGroup]?|None|Array of fastq structs containing reads and readgroups
-`bamFiles`|Array[BamInputs]?|None|Array of bam structs containing bam files and indices
+`fastqInputs`|Array[FastqInputs]?|None|Array of fastq structs containing reads and readgroups
+`bamInputs`|Array[BamInputs]?|None|Array of bam structs containing bam files and indices
 
 
 #### Optional task parameters:
@@ -83,6 +83,7 @@ Output | Type | Description
 `contaminationMetrics`|File|Metrics about contamination for inputs bams/fastqs
 
 
+./commands.txt found, printing out the content...
 ## Commands
  This section lists command(s) run by calculateContamination workflow
  
@@ -143,3 +144,4 @@ Output | Type | Description
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
 _Generated with generate-markdown-readme (https://github.com/oicr-gsi/gsi-wdl-tools/)_
+
