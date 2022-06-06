@@ -59,7 +59,7 @@ workflow calculateContamination {
 
     if ( inputType=="fastq" && defined(fastqInputs) ){
         Array[FastqInputs] fastqInputs_ = select_first([fastqInputs])
-        if ((length(fastqInputs_) == 1 && fastqInputs_[0].sampleType == "tumor") || (length(fastqInputs_) == 2 && fastqInputs_[0].sampleType == "tumor" && fastqInputs_[1].sampleType == "normal")){
+        if ((length(fastqInputs_) == 1 && fastqInputs_[0].sampleType == "tumor") || (length(fastqInputs_) == 2 )){
         scatter (fq in fastqInputs_) {
             call bwaMem.bwaMem {
                 input:
@@ -93,7 +93,7 @@ workflow calculateContamination {
         }
     }
     if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor" && bamInputs_[1].sampleType == "normal") {
-        call getMetrics {
+        call getTNMetrics{
             input:
                 tumorBamFile = bamInputs_[0].bamFile,
                 tumorBaiFile = bamInputs_[0].baiFile,
@@ -103,14 +103,24 @@ workflow calculateContamination {
                 modules =modules
         }
     }
-
+    if  (length(bamInputs_)==2 && bamInputs_[1].sampleType == "tumor" && bamInputs_[0].sampleType == "normal") {
+        call getNTMetrics {
+            input:
+                tumorBamFile = bamInputs_[1].bamFile,
+                tumorBaiFile = bamInputs_[1].baiFile,
+                normalBamFile = bamInputs_[0].bamFile,
+                normalBaiFile = bamInputs_[0].baiFile,
+                refVCF = refVCF,
+                modules =modules
+        }
+    }
     output {
-        File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getMetrics.pairContaminationTable])
+        File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getTNMetrics.pairContaminationTable, getNTMetrics.pairContaminationTable])
     }
 }
 
 
-task getMetrics{
+task getTNMetrics{
     input {
         File normalBamFile
         File normalBaiFile
@@ -174,6 +184,72 @@ $GATK_ROOT/bin/gatk CalculateContamination \
         }
     }
 }
+
+task getNTMetrics{
+    input {
+        File normalBamFile
+        File normalBaiFile
+        File tumorBamFile
+        File tumorBaiFile
+        String refVCF
+        String modules
+        Int memory = 24
+        Int timeout = 12
+    }
+
+    parameter_meta {
+        normalBamFile: "Reference bam file"
+        normalBaiFile: "Index of reference bam file"
+        tumorBamFile: "Tumor bam file"
+        tumorBaiFile: "Index of tumor bam file"
+        memory: "Memory allocated for this job"
+        timeout: "Time in hours before task timeout"
+    }
+
+    command <<<
+
+ln -s ~{tumorBamFile} ./tumorBamFile.bam
+ln -s ~{tumorBaiFile} ./tumorBamFile.bam.bai
+ln ~{normalBamFile} ./normalBamFile.bam
+ln ~{normalBaiFile} ./normalBamFile.bam.bai
+
+$GATK_ROOT/bin/gatk GetPileupSummaries \
+-I ./tumorBamFile.bam \
+-V ~{refVCF} \
+-L ~{refVCF} \
+-O tumor.summaries.table
+
+$GATK_ROOT/bin/gatk GetPileupSummaries \
+-I ./normalBamFile.bam \
+-V ~{refVCF} \
+-L ~{refVCF} \
+-O normal.summaries.table
+
+$GATK_ROOT/bin/gatk CalculateContamination \
+-I tumor.summaries.table \
+-matched normal.summaries.table \
+-O contamination.table
+
+    >>>
+
+    runtime {
+        modules: "~{modules}"
+        memory: "~{memory}G"
+        timeout: "~{timeout}"
+    }
+
+    output {
+        File pairContaminationTable = "contamination.table"
+    }
+
+    meta {
+        output_meta: {
+            pairContaminationTable: "Table containing contamination metrics for T/N pair"
+
+        }
+    }
+}
+
 
 task tumorOnlyMetrics{
     input {
