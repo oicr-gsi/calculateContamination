@@ -59,7 +59,7 @@ workflow calculateContamination {
 
     if ( inputType=="fastq" && defined(fastqInputs) ){
         Array[FastqInputs] fastqInputs_ = select_first([fastqInputs])
-        if ((length(fastqInputs_) == 1 && fastqInputs_[0].sampleType == "tumor") || (length(fastqInputs_) == 2 && fastqInputs_[0].sampleType == "tumor" && fastqInputs_[1].sampleType == "normal")){
+        if ((length(fastqInputs_) == 1 && fastqInputs_[0].sampleType == "tumor") || (length(fastqInputs_) == 2 )){
         scatter (fq in fastqInputs_) {
             call bwaMem.bwaMem {
                 input:
@@ -92,18 +92,21 @@ workflow calculateContamination {
                 modules =modules
         }
     }
-    if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor" && bamInputs_[1].sampleType == "normal") {
+    if  (length(bamInputs_)==2){
+        String tumorBamFile = if (bamInputs_[0].sampleType == "tumor") then bamInputs_[0].bamFile else bamInputs_[1].bamFile
+        String tumorBaiFile = if (bamInputs_[0].sampleType == "tumor") then bamInputs_[0].baiFile else bamInputs_[1].baiFile
+        String normalBamFile = if (bamInputs_[0].sampleType == "normal") then bamInputs_[0].bamFile else bamInputs_[1].bamFile
+        String normalBaiFile = if (bamInputs_[0].sampleType == "normal") then bamInputs_[0].baiFile else bamInputs_[1].baiFile
         call getMetrics {
-            input:
-                tumorBamFile = bamInputs_[0].bamFile,
-                tumorBaiFile = bamInputs_[0].baiFile,
-                normalBamFile = bamInputs_[1].bamFile,
-                normalBaiFile = bamInputs_[1].baiFile,
-                refVCF = refVCF,
-                modules =modules
+                    input:
+                        tumorBamFile = tumorBamFile ,
+                        tumorBaiFile = tumorBaiFile,
+                        normalBamFile = normalBamFile,
+                        normalBaiFile = normalBaiFile,
+                        refVCF = refVCF,
+                        modules =modules
         }
-    }
-
+    } 
     output {
         File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getMetrics.pairContaminationTable])
     }
@@ -174,6 +177,9 @@ $GATK_ROOT/bin/gatk CalculateContamination \
         }
     }
 }
+
+
+
 
 task tumorOnlyMetrics{
     input {
