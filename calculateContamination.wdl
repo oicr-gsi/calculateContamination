@@ -92,30 +92,23 @@ workflow calculateContamination {
                 modules =modules
         }
     }
-    if  (length(bamInputs_)==2 && bamInputs_[0].sampleType == "tumor" && bamInputs_[1].sampleType == "normal") {
-        call getMetrics as getTNMetrics{
-            input:
-                tumorBamFile = bamInputs_[0].bamFile,
-                tumorBaiFile = bamInputs_[0].baiFile,
-                normalBamFile = bamInputs_[1].bamFile,
-                normalBaiFile = bamInputs_[1].baiFile,
-                refVCF = refVCF,
-                modules =modules
+    if  (length(bamInputs_)==2){
+        String tumorBamFile = if (bamInputs_[0].sampleType == "tumor") then bamInputs_[0].bamFile else bamInputs_[1].bamFile
+        String tumorBaiFile = if (bamInputs_[0].sampleType == "tumor") then bamInputs_[0].baiFile else bamInputs_[1].baiFile
+        String normalBamFile = if (bamInputs_[0].sampleType == "normal") then bamInputs_[0].bamFile else bamInputs_[1].bamFile
+        String normalBaiFile = if (bamInputs_[0].sampleType == "normal") then bamInputs_[0].baiFile else bamInputs_[1].baiFile
+        call getMetrics {
+                    input:
+                        tumorBamFile = tumorBamFile ,
+                        tumorBaiFile = tumorBaiFile,
+                        normalBamFile = normalBamFile,
+                        normalBaiFile = normalBaiFile,
+                        refVCF = refVCF,
+                        modules =modules
         }
-    }
-    if  (length(bamInputs_)==2 && bamInputs_[1].sampleType == "tumor" && bamInputs_[0].sampleType == "normal") {
-        call getMetrics as getNTMetrics {
-            input:
-                tumorBamFile = bamInputs_[1].bamFile,
-                tumorBaiFile = bamInputs_[1].baiFile,
-                normalBamFile = bamInputs_[0].bamFile,
-                normalBaiFile = bamInputs_[0].baiFile,
-                refVCF = refVCF,
-                modules =modules
-        }
-    }
+    } 
     output {
-        File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getTNMetrics.pairContaminationTable, getNTMetrics.pairContaminationTable])
+        File contaminationMetrics = select_first([tumorOnlyMetrics.tumorContaminationTable, getMetrics.pairContaminationTable])
     }
 }
 
