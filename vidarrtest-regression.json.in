@@ -38,7 +38,7 @@
             "calculateContamination.bwaMem.countChunkSize_timeout": null,
             "calculateContamination.bwaMem.trimMinQuality": null,
             "calculateContamination.getTNMetrics.timeout": null,
-            "calculateContamination.getNTmetrics.timeout": null,
+            "calculateContamination.getNTMetrics.timeout": null,
             "calculateContamination.bwaMem.adapterTrimming_addParam": null,
             "calculateContamination.bwaMem.bamMerge_timeout": null,
             "calculateContamination.bwaMem.runBwaMem_modules": "samtools/1.9 hg38-bwa-index-with-alt/0.7.12",
