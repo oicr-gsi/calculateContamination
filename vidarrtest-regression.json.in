@@ -93,7 +93,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output1.metrics",
                 "type": "script"
             }
         ]
@@ -219,7 +219,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontanimation/metrics/output1.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output.metrics",
                 "type": "script"
             }
         ]
@@ -347,7 +347,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output2.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output2.metrics",
                 "type": "script"
             }
         ]
@@ -447,7 +447,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontanimation/metrics/output3.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output3.metrics",
                 "type": "script"
             }
         ]
