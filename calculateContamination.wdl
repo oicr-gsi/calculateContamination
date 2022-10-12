@@ -21,7 +21,8 @@ workflow calculateContamination {
         Array[BamInputs]? bamInputs
         String inputType
         String refVCF
-        String modules 
+        String modules
+        String outputFileNamePrefix 
     }
 
     parameter_meta {
@@ -30,6 +31,7 @@ workflow calculateContamination {
         inputType: "Either 'bam' or 'fastq'"
         refVCF: "Path the reference VCF required by GATK"
         modules: "Required environment modules"
+        outputFileNamePrefix: "output prefix for the output file name"
     }
  
     meta {
@@ -89,7 +91,8 @@ workflow calculateContamination {
                 tumorBamFile = bamInputs_[0].bamFile,
                 tumorBaiFile = bamInputs_[0].baiFile,
                 refVCF = refVCF,
-                modules =modules
+                modules =modules,
+                outputFileNamePrefix = outputFileNamePrefix
         }
     }
     if  (length(bamInputs_)==2){
@@ -104,7 +107,8 @@ workflow calculateContamination {
                         normalBamFile = normalBamFile,
                         normalBaiFile = normalBaiFile,
                         refVCF = refVCF,
-                        modules =modules
+                        modules =modules,
+                        outputFileNamePrefix = outputFileNamePrefix
         }
     } 
     output {
@@ -123,6 +127,7 @@ task getMetrics{
         String modules
         Int memory = 24
         Int timeout = 12
+        String outputFileNamePrefix
     }
 
     parameter_meta {
@@ -132,6 +137,7 @@ task getMetrics{
         tumorBaiFile: "Index of tumor bam file"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"
+        outputFileNamePrefix: "output prefix for the output file name"
     }
 
     command <<<
@@ -156,7 +162,7 @@ $GATK_ROOT/bin/gatk GetPileupSummaries \
 $GATK_ROOT/bin/gatk CalculateContamination \
 -I tumor.summaries.table \
 -matched normal.summaries.table \
--O contamination.table
+-O ~{outputFileNamePrefix}.contamination.table
 
     >>>
 
@@ -167,7 +173,7 @@ $GATK_ROOT/bin/gatk CalculateContamination \
     }
 
     output {
-        File pairContaminationTable = "contamination.table"
+        File pairContaminationTable = "~{outputFileNamePrefix}.contamination.table"
     }
 
     meta {
@@ -189,6 +195,7 @@ task tumorOnlyMetrics{
         String refVCF
         Int memory = 24
         Int timeout = 12
+        String outputFileNamePrefix
     }
 
     parameter_meta {
@@ -196,6 +203,7 @@ task tumorOnlyMetrics{
         tumorBaiFile: "Index of tumor bam file"
         memory: "Memory allocated for this job"
         timeout: "Time in hours before task timeout"
+        outputFileNamePrefix: "output prefix for the output file name"
     }
 
     command <<<
@@ -211,7 +219,7 @@ $GATK_ROOT/bin/gatk GetPileupSummaries \
 
 $GATK_ROOT/bin/gatk CalculateContamination \
 -I tumor.summaries.table \
--O contamination.table
+-O ~{outputFileNamePrefix}.contamination.table
 
     >>>
 
@@ -222,7 +230,7 @@ $GATK_ROOT/bin/gatk CalculateContamination \
         }
 
         output {
-            File tumorContaminationTable = "contamination.table"
+            File tumorContaminationTable = "~{outputFileNamePrefix}.contamination.table"
         }
 
         meta {

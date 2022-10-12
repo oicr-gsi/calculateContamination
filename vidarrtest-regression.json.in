@@ -71,6 +71,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -196,6 +197,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -323,6 +325,7 @@
                     "sampleType":"normal"
                 }
             ],
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -422,6 +425,7 @@
                     "sampleType":"tumor"
                 }
             ],
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315-CAGAGAGG-TATCCTCT",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
