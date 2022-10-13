@@ -71,6 +71,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -92,7 +93,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output1.metrics",
                 "type": "script"
             }
         ]
@@ -196,6 +197,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -217,7 +219,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output.metrics",
                 "type": "script"
             }
         ]
@@ -309,7 +311,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -323,6 +325,7 @@
                     "sampleType":"normal"
                 }
             ],
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -344,7 +347,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output2.metrics",
                 "type": "script"
             }
         ]
@@ -422,6 +425,7 @@
                     "sampleType":"tumor"
                 }
             ],
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315-CAGAGAGG-TATCCTCT",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -443,7 +447,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculateContanimation/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output3.metrics",
                 "type": "script"
             }
         ]
