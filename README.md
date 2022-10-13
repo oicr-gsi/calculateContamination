@@ -25,6 +25,7 @@ Parameter|Value|Description
 `inputType`|String|Either 'bam' or 'fastq'
 `refVCF`|String|Path the reference VCF required by GATK
 `modules`|String|Required environment modules
+`outputFileNamePrefix`|String|output prefix for the output file name
 `bwaMem.runBwaMem_bwaRef`|String|The reference genome to align the sample with by BWA
 `bwaMem.runBwaMem_modules`|String|Required environment modules
 
@@ -83,7 +84,6 @@ Output | Type | Description
 `contaminationMetrics`|File|Metrics about contamination for inputs bams/fastqs
 
 
-./commands.txt found, printing out the content...
 ## Commands
  This section lists command(s) run by calculateContamination workflow
  
@@ -144,4 +144,3 @@ Output | Type | Description
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
 _Generated with generate-markdown-readme (https://github.com/oicr-gsi/gsi-wdl-tools/)_
-

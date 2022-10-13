@@ -7,3 +7,5 @@
 ## 1.0.2 -2022-05-31
     - Make tumor/normal sample selection explicit
     - Move hard-coded parameters to inputs
+## 1.0.5 -2023-10-13
+    - Added missing output prefix
