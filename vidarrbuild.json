@@ -1,6 +1,7 @@
 {
     "names": [
-        "calculateContamination"
+        "calculateContamination",
+	"calculateContamination_lane_level"
     ],
     "wdl": "calculateContamination.wdl"
 }
