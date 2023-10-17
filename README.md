@@ -23,11 +23,8 @@ java -jar cromwell.jar run calculateContamination.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `inputType`|String|Either 'bam' or 'fastq'
-`refVCF`|String|Path the reference VCF required by GATK
-`modules`|String|Required environment modules
 `outputFileNamePrefix`|String|output prefix for the output file name
-`bwaMem.runBwaMem_bwaRef`|String|The reference genome to align the sample with by BWA
-`bwaMem.runBwaMem_modules`|String|Required environment modules
+`reference`|String|the genome reference version
 
 
 #### Optional workflow parameters:
