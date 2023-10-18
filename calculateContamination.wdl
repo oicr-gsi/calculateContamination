@@ -15,14 +15,20 @@ struct BamInputs {
     String sampleType
 }
 
+struct GenomeResources {
+    String modules
+    String refVCF
+    String bwaRef
+    String runBwaMemModules
+}
+
 workflow calculateContamination {
     input {
         Array[FastqInputs]? fastqInputs
         Array[BamInputs]? bamInputs
         String inputType
-        String refVCF
-        String modules
-        String outputFileNamePrefix 
+        String outputFileNamePrefix
+        String reference 
     }
 
     parameter_meta {
@@ -32,6 +38,7 @@ workflow calculateContamination {
         refVCF: "Path the reference VCF required by GATK"
         modules: "Required environment modules"
         outputFileNamePrefix: "output prefix for the output file name"
+        reference: "the genome reference version"
     }
  
     meta {
@@ -54,6 +61,16 @@ workflow calculateContamination {
         }
     }
 
+Map[String,GenomeResources] resources = {
+  "hg38": {
+    "modules": "gatk/4.2.0.0 hg38-gatk-gnomad/2.0",
+    "refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+    "bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
+    "runBwaMemModules": "samtools/1.9 bwa/0.7.12 hg38-bwa-index-with-alt/0.7.12"
+  }
+}
+
+
 # =======================================================
 #   Accept fastqs and align them into bam files.
 #   Bam and index file(s) collected into a new array.
@@ -67,7 +84,9 @@ workflow calculateContamination {
                 input:
                     fastqR1 = fq.fastq1,
                     fastqR2 = fq.fastq2,
-                    readGroups = fq.readGroups
+                    readGroups = fq.readGroups,
+                    runBwaMem_bwaRef = resources [ reference ].bwaRef,
+                    runBwaMem_modules = resources [ reference ]. runBwaMemModules
             }
             BamInputs alignedBamInputs= {
                 "bamFile":bwaMem.bwaMemBam,
@@ -90,8 +109,8 @@ workflow calculateContamination {
             input:
                 tumorBamFile = bamInputs_[0].bamFile,
                 tumorBaiFile = bamInputs_[0].baiFile,
-                refVCF = refVCF,
-                modules =modules,
+                refVCF = resources [ reference ].refVCF,
+                modules = resources [ reference ].modules,
                 outputFileNamePrefix = outputFileNamePrefix
         }
     }
@@ -106,8 +125,8 @@ workflow calculateContamination {
                         tumorBaiFile = tumorBaiFile,
                         normalBamFile = normalBamFile,
                         normalBaiFile = normalBaiFile,
-                        refVCF = refVCF,
-                        modules =modules,
+                        refVCF = resources [ reference ].refVCF,
+                        modules = resources [ reference ].modules,
                         outputFileNamePrefix = outputFileNamePrefix
         }
     } 
