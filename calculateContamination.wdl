@@ -56,8 +56,10 @@ workflow calculateContamination {
             }
         ]
         output_meta: {
-            contaminationMetrics: "Metrics about contamination for inputs bams/fastqs"
-
+            contaminationMetrics: {
+               description: "Metrics about contamination for inputs bams/fastqs",
+               vidarr_label: "contaminationMetrics"
+            }
         }
     }
 

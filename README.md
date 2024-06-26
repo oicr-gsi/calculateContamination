@@ -76,9 +76,9 @@ Parameter|Value|Default|Description
 
 ### Outputs
 
-Output | Type | Description
----|---|---
-`contaminationMetrics`|File|Metrics about contamination for inputs bams/fastqs
+Output | Type | Description | Labels
+---|---|---|---
+`contaminationMetrics`|File|Metrics about contamination for inputs bams/fastqs|vidarr_label: contaminationMetrics
 
 
 ## Commands
