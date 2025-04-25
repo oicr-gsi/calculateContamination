@@ -1,6 +1,6 @@
 # calculateContamination
 
-QC workflow to determine contamination metrics on tumor bam files.
+QC workflow to estimate contamination of sequencing data using GATK CalculateContamination tool. The workflow accepts fastq or bam files.
 
 ## Overview
 

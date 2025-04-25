@@ -44,7 +44,7 @@ workflow calculateContamination {
     meta {
         author: "Murto Hilali and Gavin Peng"
         email: "mhilali@oicr.on.ca and gpeng@oicr.on.ca" 
-        description: "QC workflow to determine contamination metrics on tumor bam files."
+        description: "QC workflow to estimate contamination of sequencing data using GATK CalculateContamination tool. The workflow accepts fastq or bam files."
         dependencies: [
             {
                 name: "gatk/4.2.0.0",
