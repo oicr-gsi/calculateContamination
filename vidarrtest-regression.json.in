@@ -154,7 +154,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
