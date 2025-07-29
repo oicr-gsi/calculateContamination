@@ -44,7 +44,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -56,7 +56,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -142,7 +142,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -154,7 +154,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -169,7 +169,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -181,7 +181,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontanimation/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
