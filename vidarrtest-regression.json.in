@@ -44,7 +44,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -56,7 +56,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -70,7 +70,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
-            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X",
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_Test01",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -92,7 +92,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output1.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/output_metrics/workflow_test_01.metrics",
                 "type": "script"
             }
         ]
@@ -142,7 +142,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -154,7 +154,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_P_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test01.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -169,7 +169,7 @@
                 {
                     "bamFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bam",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bam",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -181,7 +181,7 @@
                     },
                     "baiFile": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/bams/CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X.filter.deduped.realigned.recalibrated.bai",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_Test02.filter.deduped.realigned.recalibrated.bai",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -195,7 +195,7 @@
                 }
             ],
             "calculateContamination.fastqInputs": null,
-            "calculateContamination.outputFileNamePrefix": "CAPLOD_0023_nn_R_WG_OCTLOD_010003_25X",
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_Test02",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -217,7 +217,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/output_metrics/workflow_test_02.metrics",
                 "type": "script"
             }
         ]
@@ -268,7 +268,7 @@
                 {
                     "fastq1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_1.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_T_1_1.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -280,7 +280,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "//.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_T_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -290,13 +290,13 @@
                         },
                         "type": "EXTERNAL"
                     },
-                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TATCCTCT_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TATCCTCT_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'",
+                    "readGroups": "'@RG\\tID:CAPLOD_T_1\\tLB:CAPLOD_WG_Test01\\tPL:ILLUMINA\\tPU:CAPLOD_T_1\\tSM:CAPLOD_Test01'",
                     "sampleType":"tumor"
                 },
                 {
                     "fastq1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_1.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_N_1_1.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -308,7 +308,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/normal/CAPLOD_20210315-CAGAGAGG-TAGATCGC_1_2.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_N_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -318,11 +318,11 @@
                         },
                         "type": "EXTERNAL"
                     },
-                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TAGATCGC_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TAGATCGC_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'",
+                    "readGroups": "'@RG\\tID:CAPLOD_N_1\\tLB:CAPLOD_WG_Test01\\tPL:ILLUMINA\\tPU:CAPLOD_N_1\\tSM:CAPLOD_Test01'",
                     "sampleType":"normal"
                 }
             ],
-            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315",
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_Test",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -344,7 +344,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output2.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/output_metrics/workflow_test_03.metrics",
                 "type": "script"
             }
         ]
@@ -395,7 +395,7 @@
                 {
                     "fastq1": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_1.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_T_1_1.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -407,7 +407,7 @@
                     },
                     "fastq2": {
                         "contents": {
-                            "configuration": "/.mounts/labs/gsi/testdata/calculateContanimation/input/fastqs/tumor/CAPLOD_20210315-CAGAGAGG-TATCCTCT_1_2.fastq",
+                            "configuration": "/.mounts/labs/gsi/testdata/calculatecontamination/test_inputs/CAPLOD_T_1_2.fastq",
                             "externalIds": [
                                 {
                                     "id": "TEST",
@@ -417,11 +417,11 @@
                         },
                         "type": "EXTERNAL"
                     },
-                    "readGroups": "'@RG\\tID:CAPLOD_20210313-CAGAGAGG-TATCCTCT_1\\tLB:CAPLOD_0023_nn_P_PE_100_WG\\tPL:ILLUMINA\\tPU:CAPLOD_20210315-CAGAGAGG-TATCCTCT_1\\tSM:CAPLOD_0023_nn_P_OCTLOD_010003_25X'",
+                    "readGroups": "'@RG\\tID:CAPLOD_T_1\\tLB:CAPLOD_WG_Test01\\tPL:ILLUMINA\\tPU:CAPLOD_T_1\\tSM:CAPLOD_Test01'",
                     "sampleType":"tumor"
                 }
             ],
-            "calculateContamination.outputFileNamePrefix": "CAPLOD_20210315-CAGAGAGG-TATCCTCT",
+            "calculateContamination.outputFileNamePrefix": "CAPLOD_T",
             "calculateContamination.bwaMem.adapterTrimmingLog_timeout": null,
             "calculateContamination.bwaMem.slicerR1_jobMemory": null,
             "calculateContamination.bwaMem.runBwaMem_threads": null,
@@ -443,7 +443,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/metrics/output3.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/calculatecontamination/output_metrics/workflow_test_04.metrics",
                 "type": "script"
             }
         ]
