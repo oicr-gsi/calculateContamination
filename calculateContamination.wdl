@@ -69,6 +69,12 @@ Map[String,GenomeResources] resources = {
     "refVCF": "$HG38_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
     "bwaRef": "$HG38_BWA_INDEX_WITH_ALT_ROOT/hg38_random.fa",
     "runBwaMemModules": "samtools/1.9 bwa/0.7.12 hg38-bwa-index-with-alt/0.7.12"
+  },
+  "hg38_noAlt": {
+    "modules": "gatk/4.2.0.0 hg38-noalt-gatk-gnomad/2.0",
+    "refVCF": "$HG38_NOALT_GATK_GNOMAD_ROOT/small_exac_common_3.hg38.vcf.gz",
+    "bwaRef": "$HG38_BWA_INDEX_NOALT_ROOT/hg38_noAlt.fa",
+    "runBwaMemModules": "samtools/1.9 bwa/0.7.17 hg38-bwa-index-noalt/0.7.17"
   }
 }
 
